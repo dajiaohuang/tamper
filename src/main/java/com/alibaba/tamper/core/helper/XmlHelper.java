@@ -32,6 +32,11 @@ public class XmlHelper {
             DocumentBuilderFactory bf = DocumentBuilderFactory.newInstance();
             bf.setNamespaceAware(true);
             bf.setSchema(s);
+            bf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+            bf.setFeature("http://xml.org/sax/features/external-general-entities", false);
+            bf.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+            bf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+
             DocumentBuilder builder = bf.newDocumentBuilder();
             builder.setErrorHandler(new ErrorHandler() {
 
